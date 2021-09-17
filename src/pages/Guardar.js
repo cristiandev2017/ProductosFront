@@ -13,8 +13,6 @@ const Guardar = () => {
     })
 
     const handleInputChange = (event) => {
-        console.log(event.target.name)
-        console.log(event.target.value)
         setDatos({
             ...datos,
             [event.target.name] : event.target.value
@@ -25,8 +23,6 @@ const Guardar = () => {
 
     const guardarDatos = async(event) => {
         event.preventDefault()
-        //console.log(datos);
-        //console.log('enviando datos...' + datos.codigo + ' ' + datos.nombre+ ' ' + datos.precio+ ' ' + datos.lote)
         await clientAxios.post('/crear',datos);
         history.push("/listar");
     }
@@ -37,7 +33,7 @@ const Guardar = () => {
             <form onSubmit={guardarDatos}>
                 <div className="mb-3">
                     <label  className="form-label">Codigo</label>
-                    <input type="text" className="form-control" name="codigo" onChange={handleInputChange} placeholder="Codigo del Producto"/>
+                    <input type="text" className="form-control" name="codigo" onChange={handleInputChange}  placeholder="Codigo del Producto"/>
                 </div>
                 <div className="mb-3">
                 <label  className="form-label">Nombre</label>
