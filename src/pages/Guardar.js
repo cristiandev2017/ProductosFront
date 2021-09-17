@@ -2,8 +2,8 @@ import React from 'react'
 
 const Guardar = () => {
     return (
-        <div>
-            <h1>Guardar Producto</h1>
+        <div className="container">
+            <h1 className="text-center mt-4">Formulario de Guardar productos</h1>
         </div>
     )
 }
