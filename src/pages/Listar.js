@@ -21,15 +21,17 @@ const Listar = () => {
   };
 
   //Ahora se llenan
-  useEffect( async () => {
-    const response = await clientAxios.get("/list");
-    setProducts(response.data);
+  useEffect(() => {
+    async function axiosAPI(){
+      const response = await clientAxios.get("/list");
+      setProducts(response.data);
+    }
+    axiosAPI()
   }, [products]);
 
   const history = useHistory();
 
   const eliminarProducto = (id, name) => {
-    console.log("Traigo el id", id);
     Swal.fire({
       title: name,
       text: "¿Con seguridad desea eliminar este producto?",
